@@ -1,0 +1,49 @@
+API for Upfront MTN:
+
+1)Debit-upfront payment:
+Url:http://10.122.20.34/uspmtn/debit-upfront-payment
+
+Requset:
+{
+     "refNo": "PSPRT00122332",
+     "msisdn": "0288855885",
+     "amount" :"12.00",
+     "narration":"Debit MTN Customer",
+     "voucher":"12356"
+}
+
+Response:
+
+
+{
+    "responseCode": "03",
+    "responseMessage": "Processing payment."
+}
+
+2)Uniwallet Payment Listener:
+Url:http://10.122.20.34/uspmtn/uniwallet-payment-listener
+
+Requset:
+{
+    "responseCode": "01",
+    "responseMessage": "Payment successful",
+    "uniwalletTransactionId":"23434562324",
+    "networkTransactionId":"98342345453",
+    "merchantId":"1111",
+    "productId":"22",
+    "refNo":"20171111101010476560",
+    "msisdn":"0287747454",
+    "amount":"18.00"
+  }
+  
+Response:
+
+
+   {
+      "responseCode": "00",
+        "responseMessage": "Callback Successful."
+   }
+
+Note:Customer must be confirmed 	
+is_deduction_attempt to 1 if scheduler is not running.
+

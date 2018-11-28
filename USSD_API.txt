@@ -1,0 +1,14 @@
+USSD Confirmation:
+Response:
+{
+    "Mobile": "233248194454",
+    "SessionId": "1234569",
+    "ServiceCode": "712",
+    "Type": "Initiation",
+    "Message": "*712#",
+    "Operator": "vodafone",
+    "Sequence": 1
+}
+
+url:http://10.122.20.34/uspgh/confirmation
+Method:Post

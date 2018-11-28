@@ -1,0 +1,87 @@
+ MTN Wallet Integration API Request Parameters
+ ----------------------------------------------
+	Mandate Creation API:
+ 
+		 url: http://ip:port/uspmtn/create-mandate
+		 request parameters:
+					{
+					  "clientPhone":"2332444444",
+					  "amountToDebit":"10.00",
+					  "thirdPartyReferenceNo":"yyyyMMddHHmmss+cutomer_policy_Id",
+					  "frequencyType":"Daily",
+					  "frequency":"1",
+					  "startDate":"2017-05-03",
+					  "endDate":"2017-05-04",
+					  "debitDay":"30"
+					}
+	Mandate cancellation API:
+
+		 url: http://ip:port/uspmtn/cancel-mandate
+		 request parameters:
+				{
+					"mandateId" = "11",
+					"clientPhone" = "2332444444"
+				}	
+    UniWallet Customer Debit API:
+
+		 url: http://ip:port/uspmtn/debit-upfront-payment
+		 request parameters:
+				{
+					"refNo" = "PSPRT00122332",
+					"msisdn" = "23324xxxxxx",
+					"amount" = "0.01",
+					"narration" = "Debit MTN Customer"
+				}
+
+		
+ MTN Wallet Integration CallBack API Request Parameters
+ ------------------------------------------------------
+
+	Debit Recurring Callback API:
+	
+		url: http://ip:port/uspmtn/debit-order-payment-listener
+		request parameters:
+			{
+				"responseCode": "01",
+				"responseMessage": "Debit customer successful",
+				"momTransactionId":"0234545564",
+				"debitOrderTransactionId":"142123213432",
+				"merchantId":"1111",
+				"productId":"1",
+				"mandateId":"11",
+				"clientPhone":"2332444444",
+				"amount":"0.0"
+			}
+	Upfront Debit CallBack API:
+   
+		url: http://ip:port/uspmtn/uniwallet-payment-listener
+		request parameters:
+			{
+				"responseCode": "01",
+				"responseMessage": "Payment successful",
+				"uniwalletTransactionId":"23434562324",
+				"networkTransactionId":"98342345453",
+				"merchantId":"1111",
+				"productId":"1",
+				"refNo":"0234545564",
+				"msisdn":"233547032251",
+				"amount":"0.0"
+			}
+	Mandate Creation CallBack API:
+	
+		url: http://ip:port/uspmtn/create-mandate-listener
+		request parameters:
+			{
+				"responseCode": "04",
+				"responseMessage": "Mandate creation successful",
+				"merchantId":"1111",
+				"productId":"1",
+				"mandateId":"11",
+				"clientPhone":"233547032251",
+				"thirdPartyReferenceNo":"yyyyMMddHHmmss+cutomer_policy_Id"
+			}
+
+	Tigo Debit Call Back API(uspbima)
+	---------------------------------
+
+		url:

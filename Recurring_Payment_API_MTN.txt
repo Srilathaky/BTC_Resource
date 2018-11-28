@@ -1,0 +1,100 @@
+For Recurring POlicies:
+
+1)Create-Mandate:
+
+Url:http://10.122.20.34/uspmtn/create-mandate
+Method:Post
+Headers:Accept:Application/json,Content-Type:Application/json
+
+Request:
+{
+      "clientPhone":"0287744111",
+      "amountToDebit":"12.00",
+     "thirdPartyReferenceNo":"20180927",
+      "frequencyType":"Daily",
+      "frequency":"1",
+      "startDate":"2017-1-10",
+      "endDate":"2017-2-10",
+      "debitDay":"30"
+       
+}
+
+Response:
+
+    {
+        "responseCode": "09",
+        "responseMessage": "Mandate creation pending"
+    }
+
+
+2)Create-Mandate Listener:
+
+Url:http://10.122.20.34/uspmtn/create-mandate-listener
+Method:Post
+Headers:Accept:Application/json,Content-Type:Application/json
+
+Request:
+{
+	"responseCode": "04",
+	"responseMessage": "Mandate creation successful",
+	"merchantId":"1111",
+	"productId":"1",
+	"mandateId":"25",
+	"clientPhone":"0287475555",
+	"thirdPartyReferenceNo":"20171010100522476524"
+}
+
+Response:
+   {	"responseCode": "00",
+	   "responseMessage": "Callback Successful."
+   }
+   
+3)Debit Order Payment listener.
+Url:http://10.122.20.34/uspmtn/debit-order-payment-listener   
+Method:Post
+Headers:Accept:Application/json,Content-Type:Application/json
+
+Request:
+{
+				"responseCode": "01",
+				"responseMessage": "Debit customer successful",
+				"momTransactionId":"0234545564",
+				"debitOrderTransactionId":"142123213432",
+				"merchantId":"1111",
+				"productId":"1",
+				"mandateId":"25",
+				"clientPhone":"12",
+				"amount":"2.0"
+}
+
+Response:
+{
+	"responseCode":"00",
+	"responseMessage": "Callback Successful."
+}
+
+Note:1)Customer should be confirmed(USSD) to run the API 
+2)is_deduction_attempted to 1 in customer_Policy table(If scheduler is not running)
+
+4)Cancel Mandate:
+URl:http://10.122.20.34/uspmtn/cancel-mandate
+
+Request:
+	{
+		"mandateId":"d",
+		"clientPhone":"d"
+	}
+	
+Response:
+
+
+    {
+        "responseCode": "10",
+        "responseMessage": "Mandate cancellation successful"
+    }
+
+
+
+
+
+
